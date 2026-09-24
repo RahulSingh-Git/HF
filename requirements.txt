@@ -3,7 +3,6 @@ transformers==4.30.0
 torch
 pillow
 gTTS
-# Add these three lines below to resolve hidden version conflicts:
 pytz
 packaging
 huggingface-hub
