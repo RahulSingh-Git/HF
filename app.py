@@ -1,5 +1,99 @@
 
 
+import streamlit as st
+
+# Function to inject custom CSS
+def inject_custom_css():
+    st.markdown(
+        """
+        <style>
+        /* Main background - light and friendly */
+        .stApp {
+            background-color: #f7faff;
+        }
+
+        /* Title styling - colorful and cartoonish */
+        h1 {
+            color: #ff6f61 !important;
+            font-family: 'Comic Sans MS', cursive, sans-serif !important;
+            font-weight: bold !important;
+            text-shadow: 1px 1px 2px #ffc107;
+        }
+
+        /* Sidebar styling - softer background */
+        .stSidebar {
+            background-color: #f1f8ff !important;
+        }
+
+        /* Generic header text */
+        .stMarkdown h2, .stMarkdown h3 {
+            color: #444 !important;
+        }
+
+        /* Styling for the text boxes */
+        .stTextInput>div>div>input, .stTextArea>div>div>textarea {
+            background-color: #ffffff !important;
+            color: #333 !important;
+            border-color: #ddd !important;
+        }
+
+        /* General element container padding */
+        .block-container {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        /* Specific container for images - add background images to the PAGE */
+        /* Note: It's hard to inject images *behind* elements, so we'll place them as floating illustrations. */
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+# Place illustrations with CSS positioning - This is the key part for the new design.
+def add_illustrations():
+    # Use HTML to place the images and give them CSS for absolute positioning.
+    # You will need to find/host your own images for dinosaurs, Barbie, etc. and update the URLs.
+    # The example URLs below are placeholders.
+
+    st.markdown(
+        f"""
+        <div style="position: absolute; top: 10%; right: 5%; width: 15vw; z-index: 10;">
+            <img src="https://path_to_your_hosted_dinosaur_image.png" style="width: 100%; border-radius: 20px;" alt="Dinosaur">
+        </div>
+        <div style="position: absolute; top: 15%; right: 25%; width: 12vw; z-index: 9;">
+            <img src="https://path_to_your_hosted_barbie_image.png" style="width: 100%;" alt="Barbie">
+        </div>
+        <div style="position: absolute; top: 60%; right: 10%; width: 25vw; z-index: 8;">
+            <img src="https://path_to_your_hosted_playground_image.png" style="width: 100%;" alt="Playground">
+        </div>
+        <div style="position: absolute; top: 65%; left: 30%; width: 10vw; z-index: 7;">
+             <img src="https://path_to_your_hosted_cartoon_char_1.png" style="width: 100%;" alt="Cartoon Character">
+        </div>
+        <div style="position: absolute; top: 75%; left: 20%; width: 10vw; z-index: 6;">
+             <img src="https://path_to_your_hosted_cartoon_char_2.png" style="width: 100%;" alt="Cartoon Character">
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+# --- Execution ---
+# Call the CSS function first
+inject_custom_css()
+
+# Then the illustrations
+add_illustrations()
+
+# Now proceed with your existing app content
+st.sidebar.title("🎈 How to Play")
+# ... your existing sidebar content ...
+
+st.title("🌟 Magic Picture Storyteller 📖")
+# ... your existing main content ...
+st.info("Designed for children aged 3–10.", icon="💡") # Keep the designed text as a callout
+
+# ... remainder of your image uploading and processing logic ...
+
 """
 Storytelling Web Application for Kids (Aged 3-10)
 ------------------------------------------------
